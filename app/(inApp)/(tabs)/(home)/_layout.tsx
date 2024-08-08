@@ -1,19 +1,17 @@
 import { Stack } from "expo-router";
+import React from "react";
+
 
 export default function HomeLayout() {
   return (
-    <Stack screenOptions={{
-        headerStyle: {
-          backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      }}>
-      <Stack.Screen name="home" options={{title: 'Home'}} />
-      <Stack.Screen name="moreOnHome" options={{title: 'More'}} />
+    <>
+   
+    <Stack screenOptions={{headerShown: false}}>
+      <Stack.Screen name="home"  />
+      <Stack.Screen name="courseInDetailScreen" />
+      <Stack.Screen name="chapterContentScreen" />
       
     </Stack>
+    </>
   );
 }

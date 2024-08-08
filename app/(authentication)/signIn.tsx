@@ -12,12 +12,15 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { commonStyles } from '@/styles/Common/commonStyles'
 import { useNavigation } from '@react-navigation/native'
 import { Link, useRouter } from 'expo-router'
+import {  useSignIn } from "@clerk/clerk-expo";
 
 
 const signIn = () => {
 
   const navigation: any = useNavigation();
   const router: any = useRouter();
+
+  const { signIn, setActive, isLoaded } = useSignIn();
   
 
   interface UserInfo {
@@ -109,6 +112,34 @@ const handleSignIn = () => {
   
 }
 
+const onSignInPress = React.useCallback(async () => {
+  if (!isLoaded) {
+    return;
+  }
+
+  try {
+    const { email, password } = userInfo;
+    const signInAttempt = await signIn.create({
+      identifier: email,
+      password,
+    });
+
+    if (signInAttempt.status === 'complete') {
+      console.log('Sign in successful');
+      
+      await setActive({ session: signInAttempt.createdSessionId });
+      router.replace('home');
+    } else {
+      // See https://clerk.com/docs/custom-flows/error-handling
+      // for more info on error handling
+      console.error(JSON.stringify(signInAttempt, null, 2));
+    }
+  } catch (err: any) {
+    console.error(JSON.stringify(err, null, 2));
+  }
+}, [isLoaded, userInfo]);
+
+
   return (
 
     <LinearGradient
@@ -178,7 +209,7 @@ const handleSignIn = () => {
                     name='lock' 
                     size={20} 
                     color='#A1A1A1' 
-                    style={commonStyles.passwordLockStyles}
+                    style={commonStyles.signInPasswordLockStyles}
                   />
                 </View>
 
@@ -202,7 +233,7 @@ const handleSignIn = () => {
                
                 <TouchableOpacity
                   style={commonStyles.signInButtonContainer}
-                  onPress={handleSignIn}
+                  onPress={onSignInPress}
                 >
                   {buttonSpinner ? (
                     <ActivityIndicator size='small' color='#fff' />
@@ -221,7 +252,6 @@ const handleSignIn = () => {
                     <FontAwesome name='github' size={40} color='#0F1641' />
                   </TouchableOpacity>
                   
-                  
                 </View>
 
                 <View style={commonStyles.signUpRedirect}>
@@ -235,12 +265,10 @@ const handleSignIn = () => {
 
                 </View>
 
-
             </View>
            
-    
         </ScrollView>
-       
+
     </LinearGradient>
    
   )

@@ -2,16 +2,16 @@ export const onboardingSwiperData: onboardingSwiperDataType[] = [
     {
         id: 1,
         title: 'Explore the Frontend',
-        description: 'Learn the basics of HTML, CSS, JavaScript and React.',
-        shortDescription: 'HTML, CSS, JavaScript, React',
+        description: 'Learn the basics of HTML5, CSS3, JavaScript and React.',
+        shortDescription: 'HTML5, CSS3, JavaScript, React',
         shortDescription2: 'Build stunning websites',
         image: require('@/assets/images/frontend.png')
     },
     {
         id: 2,
         title: 'Dive into the Backend',
-        description: 'Master server-side development with .NET and Express.js',
-        shortDescription: '.NET, Express',
+        description: 'Master server-side development with .NET, Nodejs and Express',
+        shortDescription: '.NET, Nodejs, Express',
         shortDescription2: 'Create powerful APIs',
         image: require('@/assets/images/backend_we.png')
     },
@@ -37,7 +37,7 @@ export const onboardingSwiperData: onboardingSwiperDataType[] = [
         description: 'Learn Agile methodologies and project management tools.',
         shortDescription: 'Agile, Tools',
         shortDescription2: 'Manage projects efficiently',
-        image: require('@/assets/images/project-management.png')
+        image: require('@/assets/images/exchange.png')
     },
 
 ];

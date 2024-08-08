@@ -3,21 +3,27 @@ import React, { useState, useRef } from 'react'
 import { commonStyles } from '@/styles/Common/commonStyles'
 import { useNavigation } from '@react-navigation/native'
 import Button from '@/components/button';
+import { useSignUp } from "@clerk/clerk-expo";
+import { useRouter } from "expo-router";
 
 
 export default function VerifyAccount() {
 
   const navigation: any = useNavigation();
 
-  const [code, setCode] = useState(new Array(4).fill(''));
-  const inputs = useRef<any>([...Array(4)].map(() => React.createRef()));
+  const router = useRouter();
+
+  const { isLoaded, signUp, setActive } = useSignUp();
+
+  const [code, setCode] = useState(new Array(6).fill(''));
+  const inputs = useRef<any>([...Array(6)].map(() => React.createRef()));
 
   const handleInput = (index: number, value: string) => {
     const newCode = [...code];
     newCode[index] = value;
     setCode(newCode);
 
-    if (value && index < 3) {
+    if (value && index < 5) {
       (inputs.current[index + 1].current as any).focus();
     }
 
@@ -30,6 +36,29 @@ export default function VerifyAccount() {
     const verificationCode = code.join('');
     console.log(verificationCode);
   }
+
+  const onPressVerify = async () => {
+    if (!isLoaded) {
+      return;
+    }
+
+    try {
+      const completeSignUp = await signUp.attemptEmailAddressVerification({
+        code: code.join(''),
+      });
+
+      if (completeSignUp.status === 'complete') {
+        await setActive({ session: completeSignUp.createdSessionId });
+        router.replace('/home');
+      } else {
+        console.error(JSON.stringify(completeSignUp, null, 2));
+      }
+    } catch (err: any) {
+      // See https://clerk.com/docs/custom-flows/error-handling
+      // for more info on error handling
+      console.error(JSON.stringify(err, null, 2));
+    }
+  };
 
   const {width} = Dimensions.get('window')
 
@@ -61,7 +90,7 @@ export default function VerifyAccount() {
       </View>
       <View>
         <TouchableOpacity style={[styles.verifyButton, {width: width * 1 - 130}]}
-          onPress={handleSubmit}
+          onPress={onPressVerify}
         >
           <Text style={commonStyles.signInTextStyle}>Verify</Text>
         </TouchableOpacity>

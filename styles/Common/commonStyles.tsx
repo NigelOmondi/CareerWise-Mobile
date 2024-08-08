@@ -17,7 +17,7 @@ export const commonStyles = StyleSheet.create({
     buttonContainer: {
         backgroundColor: '#FFA500',
         width: '100%',
-        height: 30,
+        height: 45,
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
@@ -65,7 +65,7 @@ export const commonStyles = StyleSheet.create({
       doneButtonContainer: {
         backgroundColor: '#2467EC',
         width: '100%',
-        height: 30,
+        height: 45,
         borderRadius: 5,
         marginHorizontal: 5,
         justifyContent: 'center',
@@ -73,10 +73,10 @@ export const commonStyles = StyleSheet.create({
         marginBottom: 20,
     },
     signInImage: {
-        width: '60%',
-        height: 220,
+        width: 200,
+        height: 200,
         alignSelf: 'center',
-        marginTop: 50,
+        marginTop: 70,
     },
     welcomeText: {
         fontSize: hp("3.5%"),
@@ -89,18 +89,30 @@ export const commonStyles = StyleSheet.create({
         fontFamily: 'Prompt-Light',
     },
     inputContainer: {
-        marginHorizontal: 16,
+        marginHorizontal: 10,
         marginTop: 20,
         rowGap: 30,
     },
     input: {
         backgroundColor: '#ffffff',
-        height: 55,
-        marginHorizontal: 16,
-        borderRadius: 8,
-        paddingLeft: 40,
+        height: 50,
+        marginHorizontal: 10,
+        borderRadius: 5,
+        paddingLeft: 44,
         fontSize: 16,
         color: '#000000',
+        elevation: 5,
+    },
+    nameInput: {
+        backgroundColor: '#ffffff',
+        height: 50,
+        paddingLeft: 10,
+        marginBottom: 15,
+        borderRadius: 5,
+        fontSize: 16,
+        color: '#000000',
+        width: '50%',
+        elevation: 5,
     },
     usernameIconStyles: {
         position: 'absolute', 
@@ -109,24 +121,30 @@ export const commonStyles = StyleSheet.create({
     },
     signUpEmailIconStyles: {
         position: 'absolute', 
-        left: 26, 
-        top: 87,
+        left: 24, 
+        top: 80,
     },
     signInEmailIconStyles: {
         position: 'absolute', 
-        left: 26, 
-        top: 17.8,
+        left: 24, 
+        top: 15,
     },
     passwordEyeIcon: {
         position: 'absolute',
         right: 30,
-        top: 18,
+        top: 15,
     },
-    passwordLockStyles: {
+    signInPasswordLockStyles: {
         position: 'absolute',
-        left: 26,
-        top: 17.8,
-        marginTop: -2,
+        left: 24,
+        top: 13,
+        
+    },
+    signUpPasswordLockStyles: {
+        position: 'absolute',
+        left: 24,
+        top: 12,
+        
     },
     signInEmailErrorContainer: {
         flexDirection: 'row',
@@ -139,9 +157,9 @@ export const commonStyles = StyleSheet.create({
     signUpEmailErrorContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginHorizontal: 25,
+        marginHorizontal: 20,
         position: 'absolute',
-        top: 52,
+        top: 49,
        
     },
     signInPasswordErrorContainer: {
@@ -149,25 +167,44 @@ export const commonStyles = StyleSheet.create({
         alignItems: 'center',
         marginHorizontal: 25,
         position: 'absolute',
-        top: 130,
+        top: 120,
     },
     signUpPasswordErrorContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginHorizontal: 25,
+        marginHorizontal: 20,
         position: 'absolute',
-        top: 122,
+        top: 113,
     },
-    signUpUsernameErrorContainer: {
+    signUpFirstNameErrorContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginHorizontal: 25,
+        marginHorizontal: 5,
+        position: 'absolute',
+        top: -20,
+    },
+    signUpLastNameErrorContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginLeft: 165,
         position: 'absolute',
         top: -20,
     },
     errorText: {
         color: 'red',
         marginLeft: 5,
+        fontSize: 11,
+        left: 5,
+    },
+    firstNameErrorText: {
+        color: 'red',
+        marginLeft: 0,
+        fontSize: 11,
+        left: 5,
+    },
+    lastNameErrorText: {
+        color: 'red',
+        marginLeft: 0,
         fontSize: 11,
         left: 5,
     },
@@ -179,11 +216,12 @@ export const commonStyles = StyleSheet.create({
     },
     signInButtonContainer: {
         backgroundColor: '#FFA500',
-        width: '100%',
+        width: '95%',
         height: 50,
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'center',
     },
     signInTextStyle: {
         color: '#fff', 
