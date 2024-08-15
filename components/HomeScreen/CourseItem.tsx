@@ -5,7 +5,7 @@ import CourseProgressBar from './CourseProgressBar'
 
 const CourseItem = ({item, completedChapters}: any) => {
 
-    //console.log("completed chapters in CourseItem.tsx", completedChapters);
+    //console.log("completed chapters  in CourseItem.tsx", completedChapters);
     
   return (
     <View style={{ padding: 10, backgroundColor: '#fff', borderRadius: 5, marginRight: 15, width: 268 }}>

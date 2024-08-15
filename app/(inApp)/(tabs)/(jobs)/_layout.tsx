@@ -7,7 +7,8 @@ export default function ProfileLayout() {
       <>
       
       <Stack screenOptions={{headerShown: false}}>
-        <Stack.Screen name="profile" options={{title: 'Profile'}}/>
+        
+        <Stack.Screen name="jobsHome" />
       </Stack>
       </>
     );

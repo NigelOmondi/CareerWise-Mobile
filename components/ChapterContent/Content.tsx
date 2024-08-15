@@ -72,7 +72,7 @@ const Content = ({ content, OnChapterFinish }: any) => {
                         </ScrollView>
                       
                         <TouchableOpacity onPress={()=>OnNextButtonPress(index)}
-                            style={{position: 'absolute', bottom:230, width: '100%', alignSelf: 'center'}}>
+                            style={{position: 'absolute', bottom:300, width: '100%', alignSelf: 'center'}}>
                             <Text style={{
                                 backgroundColor: '#2467EC',
                                 padding: 10, color: '#fff',

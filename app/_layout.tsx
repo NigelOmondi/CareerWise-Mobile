@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Stack } from "expo-router";
+import { useRouter, Stack } from "expo-router";
 import { ClerkProvider, ClerkLoaded, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { Slot, Redirect } from "expo-router";
 import * as SecureStore from "expo-secure-store";
@@ -8,6 +8,7 @@ import { CompletedChaptersProvider } from "@/Context/CompletedChaptersContext";
 import { UserPointsProvider } from "@/Context/UserPointsContext";
 import { getUserPoints } from "@/Services/storeUserPoints";
 import { useAuth } from "@clerk/clerk-react";
+import { ToastAndroid } from "react-native";
 
 const tokenCache = {
   async getToken(key: string) {
@@ -42,10 +43,9 @@ if (!publishableKey) {
   );
 }
 
+
 export default function RootLayout() {
 
-  
- 
 
   return (
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>

@@ -24,7 +24,7 @@ const CourseProgress = () => {
 
     useEffect(()=> {
         GetAllCoursesProgress()
-    }, [,user])
+    }, [,user,inprogressCoursesList])
 
   return (
       <View style={{ paddingStart: 17, marginBottom: 20 }}>

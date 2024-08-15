@@ -1,5 +1,13 @@
 export const onboardingSwiperData: onboardingSwiperDataType[] = [
     {
+        id: 0,
+        title: 'Our Value Proposition',
+        description: 'There are trillions of content on the internet, making it difficult and confusing to know where to start as a new developer. This is where CAREERWISE comes in! 🎉 We RESEARCH, FILTER and CURATE for you the most UP TO DATE content so that you focus on what is really important, learning and actually developing software products.',
+        shortDescription: 'Learn how to learn, Design, Build and Deploy Software',
+        shortDescription2: 'Design, Build, Deploy',
+        image: require('@/assets/images/ContentFilter.json')
+    },
+    {
         id: 1,
         title: 'Explore the Frontend',
         description: 'Learn the basics of HTML5, CSS3, JavaScript and React.',
@@ -37,7 +45,7 @@ export const onboardingSwiperData: onboardingSwiperDataType[] = [
         description: 'Learn Agile methodologies and project management tools.',
         shortDescription: 'Agile, Tools',
         shortDescription2: 'Manage projects efficiently',
-        image: require('@/assets/images/exchange.png')
+        image: require('@/assets/images/agile.png')
     },
 
 ];

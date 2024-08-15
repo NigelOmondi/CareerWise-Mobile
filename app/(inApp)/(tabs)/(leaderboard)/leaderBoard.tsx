@@ -1,10 +1,11 @@
-import { FlatList, Image, StyleSheet, Text, View, ScrollView, StatusBar } from 'react-native'
+import { FlatList, Image, StyleSheet, Text, View, ScrollView, StatusBar, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState, useContext } from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import { createNewUser, getAllUsers, getUserDetail } from '@/Services/cms';
 import { UserPointsContext } from '@/Context/UserPointsContext';
 import { useUser } from '@clerk/clerk-expo';
 import { getUserPoints } from '@/Services/storeUserPoints';
+import { router } from 'expo-router';
 
 
 
@@ -40,7 +41,7 @@ const LeaderBoard = () => {
 
   useEffect(() => {
     getUserPoints().then((res) => {
-      //console.log("Async Storage Response on leaderboard", res);
+      console.log("Async Storage Response on leaderboard", res);
       setPoints(res);
      
     });
@@ -105,7 +106,13 @@ const LeaderBoard = () => {
             //console.log("Item", item);
             
             return (
-            <View style={{flexDirection: 'row', 
+            <TouchableOpacity 
+            onPress={() => {
+              if (user?.fullName === item.userName) {
+                router.push("/profile");
+              }
+            }}
+              style={{flexDirection: 'row', 
               alignItems: 'center', 
               justifyContent: 'space-between', 
               padding: 10,
@@ -126,7 +133,7 @@ const LeaderBoard = () => {
               {index === 1 && <Image source={require('@/assets/images/silver-medalist.png')} style={{width: 50, height: 50, alignSelf: 'center'}} />}
               {index === 2 && <Image source={require('@/assets/images/bronze-medalist.png')} style={{width: 50, height: 50, alignSelf: 'center'}} />}
               {index > 2 && <Image source={require('@/assets/images/ordinary-medal.png')} style={{width: 43, height: 43, alignSelf: 'center'}} />}
-            </View>
+            </TouchableOpacity>
   )}} 
         />
       </View>

@@ -26,15 +26,15 @@ export const commonStyles = StyleSheet.create({
     },
     dotStyle: {
         backgroundColor: '#FFA500',
-        width: responsiveWidth(2.5),
-        height: responsiveHeight(2.5),
+        width: responsiveWidth(2),
+        height: responsiveHeight(2),
         borderRadius: 5,
         marginHorizontal: 5,
     },
     activeDotStyle: {
         backgroundColor: '#2467EC',
-        width: 15,
-        height: 15,
+        width: 13,
+        height: 13,
         borderRadius: 99,
         marginHorizontal: 5,
     },
@@ -46,12 +46,26 @@ export const commonStyles = StyleSheet.create({
     },
     title: {
         fontSize: hp("3.5%"),
+        color: '#ffffff',
+        fontFamily: 'Prompt-Bold',
+       
+        
+    },
+    centeredTitle: {
+        fontSize: hp("3.5%"),
         textAlign: 'center',
         color: '#ffffff',
         fontFamily: 'Prompt-Bold',
         
     },
     description: {
+        fontSize: hp("2%"),
+        color: '#ffffff',
+        marginHorizontal: 34,
+        fontFamily: 'Prompt-Light',
+        
+    },
+    centeredDescription: {
         fontSize: hp("2.5%"),
         textAlign: 'center',
         color: '#ffffff',

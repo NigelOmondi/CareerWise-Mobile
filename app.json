@@ -19,7 +19,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "versionCode": 21,
+      "package": "com.nigelomondi.CareerWise"
     },
     "web": {
       "bundler": "metro",
@@ -27,7 +29,17 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "@react-native-google-signin/google-signin",
+      "expo-video",
+      "expo-build-properties",
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3782142596437121~3331097384",
+          "iosAppId": "ca-app-pub-3782142596437121~5620851820"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

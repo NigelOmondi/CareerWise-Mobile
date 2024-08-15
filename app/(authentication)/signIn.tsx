@@ -13,6 +13,7 @@ import { commonStyles } from '@/styles/Common/commonStyles'
 import { useNavigation } from '@react-navigation/native'
 import { Link, useRouter } from 'expo-router'
 import {  useSignIn } from "@clerk/clerk-expo";
+import SignInWithGoogleOauth from '@/components/SignInWithGoogleOauth'
 
 
 const signIn = () => {
@@ -38,6 +39,7 @@ const signIn = () => {
   const [buttonSpinner, setButtonSpinner] = useState(false)
   const [required, setRequired] = useState(false)
   const [error, setError] = useState<Error>({email: '', password: ''})
+  const [isLoading, setIsLoading] = useState(false)
 
   const handlePasswordValidation = (value: string) => {
     const password = value;
@@ -117,6 +119,7 @@ const onSignInPress = React.useCallback(async () => {
     return;
   }
 
+  setIsLoading(true)
   try {
     const { email, password } = userInfo;
     const signInAttempt = await signIn.create({
@@ -133,6 +136,7 @@ const onSignInPress = React.useCallback(async () => {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
       console.error(JSON.stringify(signInAttempt, null, 2));
+      setIsLoading(false)
     }
   } catch (err: any) {
     console.error(JSON.stringify(err, null, 2));
@@ -235,8 +239,12 @@ const onSignInPress = React.useCallback(async () => {
                   style={commonStyles.signInButtonContainer}
                   onPress={onSignInPress}
                 >
-                  {buttonSpinner ? (
-                    <ActivityIndicator size='small' color='#fff' />
+                  {isLoading ? (
+                    <View style={{flexDirection: 'row', gap: 20, alignItems: 'center'}}>
+                      <ActivityIndicator size='large' color='#fff' />
+                       <Text style={commonStyles.signInTextStyle}> Signing In...</Text>
+                    </View>
+                   
                   ) : (
                     <Text style={commonStyles.signInTextStyle}>Sign In</Text>
                   )}
@@ -244,15 +252,16 @@ const onSignInPress = React.useCallback(async () => {
                 </TouchableOpacity>
               
                 <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginTop: 10}}>
-                  <TouchableOpacity>
-                    <FontAwesome name='google' size={40} color='#0F1641' />
-                  </TouchableOpacity>
+
+                <SignInWithGoogleOauth />
 
                   <TouchableOpacity>
                     <FontAwesome name='github' size={40} color='#0F1641' />
                   </TouchableOpacity>
                   
                 </View>
+
+                
 
                 <View style={commonStyles.signUpRedirect}>
                   <Text style={{fontSize: 18, fontFamily: 'Prompt-Regular'}}>

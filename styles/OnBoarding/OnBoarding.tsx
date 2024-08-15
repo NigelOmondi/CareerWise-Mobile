@@ -52,6 +52,11 @@ export const OnBoardingStyles = StyleSheet.create({
         textAlign: "center",
         fontFamily: "Prompt-Regular",
     },
+    dscpText2: {
+      fontSize: hp("3%"),
+      textAlign: "center",
+      fontFamily: "Prompt-Bold",
+  },
     buttonWrapper: {
         width: wp("92%"),
         height: hp("7%"),

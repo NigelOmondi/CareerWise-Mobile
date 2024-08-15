@@ -8,6 +8,7 @@ export default function LeaderBoardLayout() {
      
       <Stack screenOptions={{headerShown: false}}>
         <Stack.Screen name="leaderBoard" />
+        <Stack.Screen name="profile" />
       </Stack>
       </>
       

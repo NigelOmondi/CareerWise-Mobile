@@ -161,12 +161,10 @@ export const markCompletedChapter = async (
   `;
   try {
     const data: any = await request(MASTER_URL, mutationQuery);
-    //console.log('Raw response from completed chapter:', data);
+    console.log('Raw API response from completed chapter:', data);
     return data;
   } catch (error) {
-    //console.log("Chapter already completed");
-    //ToastAndroid.show("Chapter already marked complete", ToastAndroid.SHORT);
-    
+   
     //console.error("API  Error on completed chapter:", error);
     //throw error; // Re-throw the error after logging it
     return null
