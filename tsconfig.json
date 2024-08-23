@@ -15,5 +15,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "components/home/welcome/welcome.style.jsx", "components/home/welcome/Welcome.jsx", "components/home/popular/Popularjobs.jsx"  ]
 }

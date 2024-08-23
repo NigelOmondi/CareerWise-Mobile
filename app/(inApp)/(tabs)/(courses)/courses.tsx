@@ -61,97 +61,170 @@ const Courses = () => {
   }, [user]);
 
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "#000"}}>
-       <StatusBar backgroundColor="transparent" barStyle="light-content" />
+    <View
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#000",
+      }}
+    >
+      <StatusBar backgroundColor="transparent" barStyle="light-content" />
 
-       
-       {/* Tabs Row */}
-      <View style={{ 
+      {/* Tabs Row */}
+      <View
+        style={{
           marginTop: 60,
           height: 50,
           marginHorizontal: 10,
-        }}>
-          <View style={{
-            flexDirection: 'row', 
-            justifyContent: 'space-around',
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-around",
             gap: 20,
-              }}>
-             <TouchableOpacity style={{backgroundColor: '#fff',borderRadius: 5, padding: 10, borderWidth: 1, borderColor: "#fff"}}>
-          <Text style={{ color: '#000', fontFamily: 'Prompt-SemiBold' }}>All Videos</Text>
-        </TouchableOpacity>
-           <TouchableOpacity style={{backgroundColor: '#000',borderRadius: 5, padding: 10, borderWidth: 1, borderColor: "#fff"}}>
-          <Text style={{ color: '#fff', fontFamily: 'Prompt-SemiBold' }}>Frontend</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: '#000',borderRadius: 5, padding: 10, borderWidth: 1, borderColor: "#fff"}}>
-          <Text style={{ color: '#fff', fontFamily: 'Prompt-SemiBold' }}>Backend</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: '#000',borderRadius: 5, padding: 10, borderWidth: 1, borderColor: "#fff"}}>
-          <Text style={{ color: '#fff', fontFamily: 'Prompt-SemiBold' }}>Mobile</Text>
-        </TouchableOpacity>
-       
-          </View>
-        
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 5,
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#fff",
+            }}
+          >
+            <Text style={{ color: "#000", fontFamily: "Prompt-SemiBold" }}>
+              DevTips
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#000",
+              borderRadius: 5,
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#fff",
+            }}
+          >
+            <Text style={{ color: "#fff", fontFamily: "Prompt-SemiBold" }}>
+              UI/UX Design
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#000",
+              borderRadius: 5,
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#fff",
+            }}
+          >
+            <Text style={{ color: "#fff", fontFamily: "Prompt-SemiBold" }}>
+              Frontend
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#000",
+              borderRadius: 5,
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#fff",
+            }}
+          >
+            <Text style={{ color: "#fff", fontFamily: "Prompt-SemiBold" }}>
+              Backend
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
-       {/* Tabs Row 2*/}
-       <View style={{ 
+      {/* Tabs Row 2*/}
+      <View
+        style={{
           marginTop: 10,
           height: 50,
           marginHorizontal: 10,
-        }}>
-          <View style={{
-            flexDirection: 'row', 
-            justifyContent: 'space-around',
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-around",
             gap: 20,
-              }}>
-           <TouchableOpacity style={{backgroundColor: '#000',borderRadius: 5, padding: 10, borderWidth: 1, borderColor: "#fff"}}>
-          <Text style={{ color: '#fff', fontFamily: 'Prompt-SemiBold' }}>Data Structures & Algorithms</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: '#000',borderRadius: 5, padding: 10, borderWidth: 1, borderColor: "#fff"}}>
-          <Text style={{ color: '#fff', fontFamily: 'Prompt-SemiBold' }}>AI</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: '#000',borderRadius: 5, padding: 10, borderWidth: 1, borderColor: "#fff"}}>
-          <Text style={{ color: '#fff', fontFamily: 'Prompt-SemiBold' }}>Dev Tips</Text>
-        </TouchableOpacity>
-       
-      
-          </View>
-        
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#000",
+              borderRadius: 5,
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#fff",
+            }}
+          >
+            <Text style={{ color: "#fff", fontFamily: "Prompt-SemiBold" }}>
+              MobileApps
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#000",
+              borderRadius: 5,
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#fff",
+            }}
+          >
+            <Text style={{ color: "#fff", fontFamily: "Prompt-SemiBold" }}>
+              Data Structures & Algorithms
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#000",
+              borderRadius: 5,
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#fff",
+            }}
+          >
+            <Text style={{ color: "#fff", fontFamily: "Prompt-SemiBold" }}>
+              Ai
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
-
-       <ScrollView 
-        pagingEnabled 
+      <ScrollView
+        pagingEnabled
         showsVerticalScrollIndicator={false}
         snapToAlignment="center"
         // snapToInterval={screenHeight - 140}
         decelerationRate="fast"
-
         style={{}}
-       >
-       
-         {/* Frontend Videos */}
-         <DennisIvyVideo />
-         <BroCodeVideo />
+      >
+        {/* Frontend Videos */}
+        <DennisIvyVideo />
+        <BroCodeVideo />
 
-         {/* Backend Videos */}
-         <DotnetSeriesOneVideo />
-         <DotnetSeriesTwoVideo />
+        {/* Backend Videos */}
+        <DotnetSeriesOneVideo />
+        <DotnetSeriesTwoVideo />
 
-         {/* Mobile App Videos */}
-         <ReactNativeIntroVideo />
-         <ReactNativeFullCourseVideo />
+        {/* Mobile App Videos */}
+        <ReactNativeIntroVideo />
+        <ReactNativeFullCourseVideo />
 
         {/* DevTips Videos */}
         <TraversyMediaVideo />
         <JoelSunnyVideo />
         {/* <NewExpoVidComponent /> */}
-        
-       </ScrollView>
-      
-       
+      </ScrollView>
 
-         {/* <ScrollView 
+      {/* <ScrollView 
         pagingEnabled
          snapToInterval={screenHeight}
          decelerationRate="fast"
@@ -161,7 +234,7 @@ const Courses = () => {
            <RandyVideo /> 
          </ScrollView>  */}
 
-        {/* <View>
+      {/* <View>
           <Video
             ref={video}
             style={styles.video}
@@ -191,7 +264,7 @@ const Courses = () => {
           </View>
         </View> */}
 
-        {/* <View style={styles.container}>
+      {/* <View style={styles.container}>
       <Video
         ref={video}
         style={styles.video}
@@ -213,8 +286,8 @@ const Courses = () => {
       </View>
     </View> */}
 
-        {/* Second video */}
-        {/* <View>
+      {/* Second video */}
+      {/* <View>
       <Video
         ref={secondVideo}
         style={styles.video}
@@ -241,7 +314,6 @@ const Courses = () => {
         />
       </View>
     </View> */}
-      
     </View>
   );
 };
